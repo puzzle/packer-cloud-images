@@ -1,21 +1,18 @@
 {
-  "description": "Minimal LVM-based CentOS 7.5 image for different clouds.",
-  "builders":
-  [
+  "description": "Minimal LVM-based CentOS 7 image for different clouds.",
+  "builders": [
     {
       "type": "qemu",
-      "iso_url": "https://pkg.adfinis-sygroup.ch/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64-NetInstall-1804.iso",
-      "iso_checksum": "937bf0a7b0932817f84f7230f15ed88911bbbd85c0c958680792b7f8d8f9c1a9",
+      "iso_url": "https://mirror.init7.net/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1810.iso",
+      "iso_checksum": "19d94274ef856c4dfcacb2e7cfe4be73e442a71dd65cc3fb6e46db826040b56e",
       "iso_checksum_type": "sha256",
-      "output_directory": "images/centos75",
+      "output_directory": "images/centos7",
       "shutdown_command": "shutdown -P now",
       "disk_size": 10240,
       "format": "qcow2",
       "headless": false,
       "accelerator": "kvm",
-      "qemuargs": [
-        [ "-m", "1024M" ]
-      ],
+      "qemuargs": [["-m", "1024M"]],
       "http_directory": "provisioning",
       "http_port_min": 8000,
       "http_port_max": 9000,
@@ -30,14 +27,16 @@
       "disk_interface": "virtio",
       "boot_wait": "5s",
       "boot_command": [
-        "<tab> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7.5-lvm-ks.cfg<enter><wait>"
+        "<tab> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7-lvm-ks.cfg<enter><wait>"
       ]
     }
   ],
   "provisioners": [
     {
-      "type": "ansible",
-      "playbook_file": "./azure_playbook.yml"
+      "type": "shell",
+      "scripts": [
+        "scripts/provision.sh"
+      ]
     }
   ]
 }

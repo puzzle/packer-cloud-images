@@ -1,0 +1,11 @@
+  #cloud-config
+  manage_etc_hosts: true
+  fqdn: demo.test-staging.puzzle.ch
+  users:
+    - name: ansible
+      gecos: Ansible for Gitlab CI
+      sudo: ALL=(ALL) NOPASSWD:ALL
+      ssh_import_id: None
+      lock_passwd: true
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEA4n8Z69s6mtDMTrozcbDZevIAOtHHzWiDthRvhQQ6sDOm5fN2ZrL1FPCTYNgi+gcKshHKsOsYy52AflZA0X8EIZ26mc+Snxq574CMzFYjWrNGLrloIf1P0zqHqnijguHx0WJzOJ/um+CL2YEvEYUwj55c16Bxo4YBMGlUoZxzdkpZ1YM15+4QX0f5a5GFLvuDo4drZZVZb5ZipN2sPoUxtKuUX8uFpC7LWrrgg2cowOafjJ5Nu0ZSMMB1s4clcyilTsxwxB6FcAHI61H7l3o/n8HiGSr8DqTtGhAKmfJdyqgECG7D2mOdQgfQBPrgC9kKI1PtHI75V/ZwP0cASAdGthQN8dfTbJQ4SB6u3ksJ3Xfd65ZG6u68nFqDUE8nj9SXRf5XPi6pr0vwajNKcft7iXI7IPtPNOstMaxh1LFtnG8VijVdWZcICORMjhVYSGxBq5nEmPeGetyi+zMx0qcGni78gYFXJRdHiCnbfwNxSf+kixIW7Z19eWMgssQxp9UliViW/kdITbbr3WHFeBPvm90N4Saz27ieDO4GRiT92R5PcDzuvwO5w5WrccBYM5OnCKaVPRVZjmv+udUrAR5+6zpdTL0oNWzPzB/0YQEMGnoauBmd3q8jFJQYNyV9nJCb8pGYiMvoQVxfJD/UVwWhDOIGl33Oas6uHXBY98IKSDc= pgassmann@pgassmann-puzzle
