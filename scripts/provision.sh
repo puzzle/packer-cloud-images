@@ -23,7 +23,7 @@ rm -f /etc/udev/rules.d/*-persistent-*
 sed -i '/HWADDR/d' /etc/sysconfig/network-scripts/ifcfg-eth0
 sed -i '/UUID/d' /etc/sysconfig/network-scripts/ifcfg-eth0
 sed -i 's,UUID=[^[:blank:]]*,/dev/vda1,' /etc/fstab
-sed -i 's,UUID=[^[:blank:]]*,/dev/vda1,' /boot/grub/grub.conf
+sed -i 's,UUID=[^[:blank:]]*,/dev/vda1,' /boot/grub2/grub.cfg
 rm -f /root/anaconda-ks.cfg
 rm -f /root/install.log
 rm -f /root/install.log.syslog
