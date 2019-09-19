@@ -1,16 +1,16 @@
 #!/bin/bash
 set -exu -o pipefail
 
-# install cloud-init tools
+# install cloud-init package in provisioner after reboot
 yum -q -y install cloud-init cloud-utils cloud-utils-growpart
 
-# let's randomise the root password
+# randomise the root password
 head -n1 /dev/urandom | md5sum | awk {'print $1'} | passwd --stdin root
 
 # no password ssh root login allowed
 sed -i -e 's/^PasswordAuthentication yes.*/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
-# grub config commandliee
+# grub config commandline
 sed -i -e 's/rhgb quiet/console=tty0 console=ttyS0,115200n8/g' /etc/default/grub
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
